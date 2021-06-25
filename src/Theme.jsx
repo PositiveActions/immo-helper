@@ -4,7 +4,10 @@ import { ThemeProvider } from "styled-components";
 const theme = {
   colors: {
     cadetGrey: "#829399",
-    mediumGrey: "#F2F2F2",
+    lightGrey: "#F2F2F2",
+    mediumGrey: "#E5E5E5",
+    yellow: "#FCA311",
+    darkBlue: "#14213D",
     white: "#ffffff",
     black: "#000000"
   },
@@ -13,10 +16,10 @@ const theme = {
     medium: "2em",
     large: "3em"
   },
+  fonts: ["quicksand-italic", "quicksand-light", "quicksand-regular", "quicksand-bold"],
   bordersRadius: {
     input: "4px",
     button: "7px",
-    category: "10px",
     card: "14px"
   },
   boxShadows: {
