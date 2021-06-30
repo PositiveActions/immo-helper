@@ -64,8 +64,8 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     font-family: ${({ theme: { fonts } }) => fonts[3]};
-    color: ${({ theme: { colors } }) => colors.mediumGrey};
-    background-color: ${({ theme: { colors } }) => colors.darkBlue};
+    color: ${({ theme: { colors } }) => colors.black};
+    background-color: ${({ theme: { colors } }) => colors.white};
     box-shadow: ${({ theme: { boxShadows } }) => boxShadows.card};
     border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.card};
     margin-bottom: 2rem;

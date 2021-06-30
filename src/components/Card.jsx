@@ -22,8 +22,6 @@ const StyledCard = styled(CardContainer)`
         flex-direction: row;
     `}
 `
-
-
 const P = styled.p`
     margin: 0 20px;
     font-family: ${({ theme: { fonts } }) => fonts[2]};
