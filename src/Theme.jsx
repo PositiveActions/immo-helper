@@ -23,7 +23,8 @@ const theme = {
     card: "14px"
   },
   boxShadows: {
-    card: "0 10px 30px 0 rgb(0 0 0 / 5%)"
+    card: "0 10px 30px 0 rgb(0 0 0 / 5%)",
+    modal: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
   }
 };
 

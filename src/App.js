@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/App.css';
 import Theme from './Theme';
-import Main from './containers/main'
+import Main from './containers/Main'
 
 function App() {
   return (
