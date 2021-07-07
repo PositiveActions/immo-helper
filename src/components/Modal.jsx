@@ -34,28 +34,40 @@ function Modal({ closeModal }) {
             <CloseModalButton onClick={() => closeModal(false)} >X</CloseModalButton>
             <ModalTitle>Mon Modal</ModalTitle>
             <Form>
-                <label>Lien</label>
-                <input type="text" />
-                <label>Prix</label>
-                <input type="number" />
-                <label>N° Pièces</label>
-                <input type="number" />
-                <label>M²</label>
-                <input type="number" />
-                <label>Contacter</label>
-                <label>Oui</label>
-                <input type="checkbox" />
-                <label>Non</label>
-                <input type="checkbox" />
-                <label>Visiter</label>
-                <label>Oui</label>
-                <input type="checkbox" />
-                <label>Non</label>
-                <input type="checkbox" />
-                <label>Contact</label>
-                <input type="text" />
-                <label>Commentaires</label>
-                <textarea name="" id="" cols="30" rows="5"></textarea>
+                <label>Lien
+                    <input type="text" />
+                </label>
+                <label>Prix
+                    <input type="number" />
+                </label>
+                <label>N° Pièces
+                    <input type="number" />
+                </label>
+                <label>M²
+                    <input type="number" />
+                </label>
+                <label>Contacter :
+                    <label>Oui
+                        <input type="checkbox" />
+                    </label>
+                    <label>Non
+                        <input type="checkbox" />
+                    </label>
+                </label>
+                <label>Visiter :
+                    <label>Oui
+                        <input type="checkbox" />
+                    </label>
+                    <label>Non
+                        <input type="checkbox" />
+                    </label>
+                </label>
+                <label>Contact
+                    <input type="text" />
+                </label>
+                <label>Commentaires :
+                    <textarea name="" id="" cols="30" rows="5"></textarea>
+                </label>
 
                 <button type="submit">Ajouter</button>
 
