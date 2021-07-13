@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { CardContainer, CardWrapper, Row, CardPic, CardHeader, CardFooter } from '../styles/styled';
 import Placeholder from './Placeholder';
@@ -28,6 +28,7 @@ const P = styled.p`
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
 `
 function Card() {
+
     return (
         <StyledCard>
             <CardPic>
