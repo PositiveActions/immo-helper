@@ -1,21 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { CardContainer, CardWrapper, Row, CardPic, CardHeader, CardFooter } from '../styles/styled';
+import { CardContainer, CardWrapper, Row, CardPic, CardHeader } from '../styles/styled';
 import Placeholder from './Placeholder';
 import media from 'styled-media-query'
 
-const cardData =
-{
-    'img': '',
-    'prix': 870,
-    'pieces': 3,
-    'metresCarres': 50,
-    'localisation': 'Paris',
-    'contacter': 'oui',
-    'visite': 'non',
-    'contact': 'maison@maison.com',
-    'commentaire': 'Des travaux a prévoir dans la cuisine et dans la salle de bain.'
-};
 
 const StyledCard = styled(CardContainer)`
     ${media.greaterThan("large")`
@@ -27,36 +15,35 @@ const P = styled.p`
     font-family: ${({ theme: { fonts } }) => fonts[2]};
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
 `
-function Card() {
+function Card({ dataForCard }) {
 
     return (
         <StyledCard>
             <CardPic>
-                <Placeholder img={cardData.img}></Placeholder>
+                <Placeholder img={dataForCard.lien}></Placeholder>
             </CardPic>
 
             <CardWrapper>
                 <CardHeader>
                     <Row>
-                        <P>{cardData.prix}€/mois</P>
-                        <P>{cardData.pieces} pièces</P>
-                        <P>{cardData.metresCarres} m2</P>
-                        <P>{cardData.localisation}</P>
+                        <P>{dataForCard.prix}€/mois</P>
+                        <P>{dataForCard.pieces} pièces</P>
+                        <P>{dataForCard.metres} m2</P>
                     </Row>
                     <Row>
-                        <P>Contacté : {cardData.contacter}</P>
-                        <P>Visité : {cardData.visite}</P>
+                        <P> Lieu : {dataForCard.lieu}</P>
                     </Row>
                     <Row>
-                        <P>Contact : {cardData.contact}</P>
+                        <P>Contacté : {dataForCard.contacter}</P>
+                        <P>Visité : {dataForCard.visite}</P>
+                    </Row>
+                    <Row>
+                        <P>Contact : {dataForCard.contact}</P>
+                    </Row>
+                    <Row>
+                        <P>Commentaires : {dataForCard.commentaires}</P>
                     </Row>
                 </CardHeader>
-
-                <CardFooter>
-                    <Row>
-                        <P>{cardData.commentaire}</P>
-                    </Row>
-                </CardFooter>
             </CardWrapper>
         </StyledCard>
     );

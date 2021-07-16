@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
+const InputStyled = styled.input`
+    display: block;
+    box-sizing: border-box;
+    width:100%;
+    border-radius: 4px;
+    border: 1px solid white;
+    padding: 10px 15px;
+    font-size: 14px;
+  `
 
 function Input({ type = "text", placeholder = "", name = "", registerFn, errors = {}, ...props }) {
     const [inputType] = useState(type);
@@ -13,7 +23,7 @@ function Input({ type = "text", placeholder = "", name = "", registerFn, errors 
 
     return (
         <div>
-            <input {...registerFn} placeholder={inputPlaceholder} type={inputType} onChange={handleChange} />
+            <InputStyled {...registerFn} placeholder={inputPlaceholder} type={inputType} onChange={handleChange} />
         </div>
     );
 }

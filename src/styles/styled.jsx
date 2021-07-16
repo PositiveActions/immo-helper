@@ -121,6 +121,10 @@ export const CardFooter = styled.div`
     `}
 `;
 
+
+//////////// MODAL /////////////
+
+
 export const Button = styled.button`
     border: none;
     min-width: 180px;
@@ -131,13 +135,20 @@ export const Button = styled.button`
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
 `;
 
+export const ModalBackground = styled.div`
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 export const ModalContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 25px;
-    width: 500px;
-    height: 500px;
+    width: 100vh;
     border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.card};
-    background-color:${({ theme: { colors } }) => colors.white};
+    background-color:${({ theme: { colors } }) => colors.cadetGrey};
     box-shadow: ${({ theme: { boxShadows } }) => boxShadows.modal};
 `;
