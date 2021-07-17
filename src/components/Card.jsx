@@ -15,7 +15,9 @@ const P = styled.p`
     font-family: ${({ theme: { fonts } }) => fonts[2]};
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
 `
-function Card({ dataForCard }) {
+function Card({ dataForCard, removeCard, editCard }) {
+
+
 
     return (
         <StyledCard>
@@ -34,17 +36,19 @@ function Card({ dataForCard }) {
                         <P> Lieu : {dataForCard.lieu}</P>
                     </Row>
                     <Row>
-                        <P>Contacté : {dataForCard.contacter}</P>
-                        <P>Visité : {dataForCard.visite}</P>
+                        <P>Contacté : {dataForCard.contactOui === true ? <span>Oui</span> : "" || dataForCard.contactNon === true ? <span>Non</span> : ""}</P>
+                        <P>Visité : {dataForCard.visiterOui === true ? <span>Oui</span> : "" || dataForCard.visiterNon === true ? <span>Non</span> : ""}</P>
                     </Row>
                     <Row>
-                        <P>Contact : {dataForCard.contact}</P>
+                        <P>Contact : {dataForCard.contact} </P>
                     </Row>
                     <Row>
                         <P>Commentaires : {dataForCard.commentaires}</P>
                     </Row>
                 </CardHeader>
             </CardWrapper>
+            <button onClick={() => editCard(dataForCard)}>Editer</button>
+            <button onClick={() => removeCard(dataForCard.id)}>Effacer</button>
         </StyledCard>
     );
 }

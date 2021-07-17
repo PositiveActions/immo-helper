@@ -50,7 +50,6 @@ function Modal({ closeModal, formResult }) {
     const onSubmit = async () => {
         const watchAllFields = await watch();
         formResult(watchAllFields);
-        console.log(watchAllFields);
     };
 
 
