@@ -50,6 +50,7 @@ function Modal({ closeModal, formResult }) {
     const onSubmit = async () => {
         const watchAllFields = await watch();
         formResult(watchAllFields);
+        closeModal(false)
     };
 
 
@@ -97,6 +98,7 @@ function Modal({ closeModal, formResult }) {
                     <Label>Commentaires :
                         <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" />
                     </Label>
+                    <button>Valider</button>
                     <button type="submit" onClick={onSubmit} >Ajouter</button>
                 </Form>
             </ModalContainer>
