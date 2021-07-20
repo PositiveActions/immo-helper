@@ -22,11 +22,13 @@ function Card({ dataForCard, removeCard, cardEditing }) {
     return (
         <StyledCard>
             <CardPic>
-                <Placeholder img={dataForCard.lien}></Placeholder>
+                {/* <Placeholder img={dataForCard.lien}></Placeholder> */}
+                <p>lien : {dataForCard.lien}</p>
             </CardPic>
 
             <CardWrapper>
                 <CardHeader>
+
                     <Row>
                         <P>{dataForCard.prix}€/mois</P>
                         <P>{dataForCard.pieces} pièces</P>
