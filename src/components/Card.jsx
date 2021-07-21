@@ -16,23 +16,19 @@ const P = styled.p`
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
 `
 function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
-    
-    function test() { 
+
+    function test() {
         cardEditing(dataForCard.id)
         openModalEdit(true);
     }
 
-
     return (
         <StyledCard>
             <CardPic>
-                {/* <Placeholder img={dataForCard.lien}></Placeholder> */}
                 <p>lien : {dataForCard.lien}</p>
             </CardPic>
-
             <CardWrapper>
                 <CardHeader>
-
                     <Row>
                         <P>{dataForCard.prix}€/mois</P>
                         <P>{dataForCard.pieces} pièces</P>
@@ -53,11 +49,9 @@ function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
                     </Row>
                 </CardHeader>
             </CardWrapper>
-
             <button onClick={test}>Editer</button>
             <button onClick={() => removeCard(dataForCard.id)}>Effacer</button>
         </StyledCard >
     );
 }
-
 export default Card;

@@ -43,12 +43,15 @@ const Form = styled.form`
     margin : 40px;
 `
 
-function Modal({ closeModalEdit, formEditResult }) {
-    const { register, formState: { errors }, watch, handleSubmit } = useForm();
+function Modal({ closeModalEdit, cardData, formEditResult }) {
+    const cardValues = cardData;
 
+    const { register, formState: { errors }, watch, handleSubmit } = useForm({ defaultValues: cardValues });
+    
     const onSubmit = async () => {
-        formEditResult()
-        closeModalEdit(false)
+        const watchAll = await watch();
+        formEditResult(watchAll)
+        closeModalEdit(false);
     };
 
     return (
@@ -58,42 +61,41 @@ function Modal({ closeModalEdit, formEditResult }) {
                 <ModalTitle>Infos Appartement/Maison</ModalTitle>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Label>Lien
-                        <Input type="text" errors={errors} registerFn={register("lien", { required: true, maxLength: 15 })} name="lien" />
-                        <span>{errors.lien?.type === 'required' && "Link is required"}</span>
+                        <Input type="text" errors={errors} registerFn={register("lien", { required: true, maxLength: 15 })} name="lien" defaultValue={cardValues.lien} />
                     </Label>
                     <Label>Prix
-                        <Input type="number" errors={errors} registerFn={register("prix", { required: true, maxLength: 7 })} name="prix" />
+                        <Input type="number" errors={errors} registerFn={register("prix", { required: true, maxLength: 7 })} name="prix" defaultValue={cardValues.prix} />
                     </Label>
                     <Label>N° Pièces
-                        <Input type="number" errors={errors} registerFn={register("pieces", { required: true, maxLength: 2 })} name="pieces" />
+                        <Input type="number" errors={errors} registerFn={register("pieces", { required: true, maxLength: 2 })} name="pieces" defaultValue={cardValues.pieces}/>
                     </Label>
                     <Label>M²
-                        <Input type="number" errors={errors} registerFn={register("metres", { required: true, maxLength: 5 })} name="metres" />
+                        <Input type="number" errors={errors} registerFn={register("metres", { required: true, maxLength: 5 })} name="metres" defaultValue={cardValues.metres}/>
                     </Label>
                     <Label>Lieu
-                        <Input type="text" errors={errors} registerFn={register("lieu", { required: true })} name="lieu" />
+                        <Input type="text" errors={errors} registerFn={register("lieu", { required: true })} name="lieu" value={cardValues.lieu} defaultValue={cardValues.lieu} />
                     </Label>
                     <Label>Contact
-                        <Input type="text" errors={errors} registerFn={register("contact", { required: true })} name="contact" />
+                        <Input type="text" errors={errors} registerFn={register("contact", { required: true })} name="contact" defaultValue={cardValues.contact}/>
                     </Label>
                     <Label>Contacter :
                         <Label>Oui
-                            <Input type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" />
+                            <Input type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" defaultValue={cardValues.contactOui}/>
                         </Label>
                         <Label>Non
-                            <Input type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" />
+                            <Input type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" defaultValue={cardValues.contactNon}/>
                         </Label>
                     </Label>
                     <Label>Visiter :
                         <Label>Oui
-                            <Input type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" />
+                            <Input type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" defaultValue={cardValues.visiterOui}/>
                         </Label>
                         <Label>Non
-                            <Input type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" />
+                            <Input type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" defaultValue={cardValues.visiterNon}/>
                         </Label>
                     </Label>
                     <Label>Commentaires :
-                        <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" />
+                        <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" defaultValue={cardValues.commentaires} />
                     </Label>
                     <button type="submit" onClick={onSubmit}>Valider les modifications</button>
                 </Form>
