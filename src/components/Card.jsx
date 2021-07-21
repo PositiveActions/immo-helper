@@ -15,8 +15,12 @@ const P = styled.p`
     font-family: ${({ theme: { fonts } }) => fonts[2]};
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
 `
-function Card({ dataForCard, removeCard, cardEditing }) {
-
+function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
+    
+    function test() { 
+        cardEditing(dataForCard.id)
+        openModalEdit(true);
+    }
 
 
     return (
@@ -50,9 +54,9 @@ function Card({ dataForCard, removeCard, cardEditing }) {
                 </CardHeader>
             </CardWrapper>
 
-            <button onClick={() => cardEditing(dataForCard.id)}>Editer</button>
+            <button onClick={test}>Editer</button>
             <button onClick={() => removeCard(dataForCard.id)}>Effacer</button>
-        </StyledCard>
+        </StyledCard >
     );
 }
 

@@ -43,19 +43,18 @@ const Form = styled.form`
     margin : 40px;
 `
 
-function Modal({ closeModal, formResult }) {
+function Modal({ closeModalEdit, formEditResult }) {
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
 
     const onSubmit = async () => {
-        const watchAllFields = await watch();
-        formResult(watchAllFields);
-        closeModal(false)
+        formEditResult()
+        closeModalEdit(false)
     };
 
     return (
         <ModalBackground>
             <ModalContainer>
-                <CloseModalButton onClick={() => closeModal(false)} >X</CloseModalButton>
+                <CloseModalButton onClick={() => closeModalEdit(false)} >X</CloseModalButton>
                 <ModalTitle>Infos Appartement/Maison</ModalTitle>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Label>Lien
@@ -96,7 +95,7 @@ function Modal({ closeModal, formResult }) {
                     <Label>Commentaires :
                         <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" />
                     </Label>
-                    <button type="submit" onClick={onSubmit} >Ajouter</button>
+                    <button type="submit" onClick={onSubmit}>Valider les modifications</button>
                 </Form>
             </ModalContainer>
         </ModalBackground>
