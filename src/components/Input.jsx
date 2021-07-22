@@ -27,5 +27,4 @@ function Input({ type = "text", placeholder = "", name = "", registerFn, errors 
         </div>
     );
 }
-
 export default Input;

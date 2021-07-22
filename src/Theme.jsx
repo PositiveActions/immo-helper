@@ -12,15 +12,15 @@ const theme = {
     black: "#000000"
   },
   fontSizes: {
-    small: "1em",
+    small: "1.5em",
     medium: "2em",
-    large: "3em"
+    large: "2.5em"
   },
   fonts: ["quicksand-italic", "quicksand-light", "quicksand-regular", "quicksand-bold"],
   bordersRadius: {
     input: "4px",
-    button: "7px",
-    card: "14px"
+    button: "4px",
+    card: "8px"
   },
   boxShadows: {
     card: "0 10px 30px 0 rgb(0 0 0 / 5%)",

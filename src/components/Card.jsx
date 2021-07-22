@@ -1,20 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import { CardContainer, CardWrapper, Row, CardPic, CardHeader } from '../styles/styled';
+import { CardContainer, CardWrapper, Row, CardPic, CardHeader, P, A, CardFooter, CardButton, CardButtonEdit } from '../styles/styled';
 import Placeholder from './Placeholder';
-import media from 'styled-media-query'
+import { FaEdit } from 'react-icons/fa';
+import { RiDeleteBin6Line } from 'react-icons/ri'
 
-
-const StyledCard = styled(CardContainer)`
-    ${media.greaterThan("large")`
-        flex-direction: row;
-    `}
-`
-const P = styled.p`
-    margin: 0 20px;
-    font-family: ${({ theme: { fonts } }) => fonts[2]};
-    font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
-`
 function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
 
     function test() {
@@ -23,12 +12,19 @@ function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
     }
 
     return (
-        <StyledCard>
+        <CardContainer>
             <CardPic>
-                <p>lien : {dataForCard.lien}</p>
+                <Placeholder />
             </CardPic>
             <CardWrapper>
+                <CardFooter>
+                    <CardButton onClick={() => removeCard(dataForCard.id)}><RiDeleteBin6Line /></CardButton>
+                    <CardButtonEdit onClick={test}> <FaEdit /> </CardButtonEdit>
+                </CardFooter>
                 <CardHeader>
+                    <Row>
+                        <P> Lien : <A href={dataForCard.lien} target="_blank">{dataForCard.lien}</A></P>
+                    </Row>
                     <Row>
                         <P>{dataForCard.prix}€/mois</P>
                         <P>{dataForCard.pieces} pièces</P>
@@ -49,9 +45,7 @@ function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
                     </Row>
                 </CardHeader>
             </CardWrapper>
-            <button onClick={test}>Editer</button>
-            <button onClick={() => removeCard(dataForCard.id)}>Effacer</button>
-        </StyledCard >
+        </CardContainer >
     );
 }
 export default Card;

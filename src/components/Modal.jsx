@@ -1,47 +1,8 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import styled from 'styled-components';
 import Input from '../components/Input'
 import { ModalContainer, ModalBackground } from '../styles/styled'
-
-
-const ModalTitle = styled.h1`
-    display: inline-block;
-    text-align: center;
-    margin-top: 10px;
-    color: ${({ theme: { colors } }) => colors.darkBlue};
-    font-family: ${({ theme: { fonts } }) => fonts[3]};
-    font-size: 2rem;
-`
-const Label = styled.label`
-    line-height: 2;
-    text-align: left;
-    display: block;
-    color: ${({ theme: { colors } }) => colors.darkBlue};
-    font-family: ${({ theme: { fonts } }) => fonts[3]};
-    font-size: 1.5rem;
-    font-weight: 200;
-`
-const CloseModalButton = styled.button`
-    display: flex;
-    justify-content: flex-end;
-    background-color: transparent;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: black;
-`
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    color: black;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-gap: 20px;
-    margin : 40px;
-`
+import { ModalTitle, Label, CloseModalButton, Form } from '../styles/styledForm'
 
 function Modal({ closeModal, formResult }) {
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
