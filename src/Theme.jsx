@@ -8,6 +8,7 @@ const theme = {
     mediumGrey: "#E5E5E5",
     yellow: "#FCA311",
     darkBlue: "#14213D",
+    strongBlue:"#0e101c",
     white: "#ffffff",
     black: "#000000"
   },
@@ -20,7 +21,8 @@ const theme = {
   bordersRadius: {
     input: "4px",
     button: "4px",
-    card: "8px"
+    card: "8px",
+    modal: "4px"
   },
   boxShadows: {
     card: "0 10px 30px 0 rgb(0 0 0 / 5%)",

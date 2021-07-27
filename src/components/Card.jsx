@@ -1,12 +1,12 @@
 import React from 'react';
-import { CardContainer, CardWrapper, Row, CardPic, CardHeader, P, A, CardFooter, CardButton, CardButtonEdit } from '../styles/styled';
 import Placeholder from './Placeholder';
 import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Line } from 'react-icons/ri'
+import { CardContainer, CardWrapper, Row, CardPic, CardHeader, P, A, CardFooter, CardButton, CardButtonEdit } from '../styles/styled';
 
 function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
 
-    function test() {
+    function cardId() {
         cardEditing(dataForCard.id)
         openModalEdit(true);
     }
@@ -19,7 +19,7 @@ function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
             <CardWrapper>
                 <CardFooter>
                     <CardButton onClick={() => removeCard(dataForCard.id)}><RiDeleteBin6Line /></CardButton>
-                    <CardButtonEdit onClick={test}> <FaEdit /> </CardButtonEdit>
+                    <CardButtonEdit onClick={cardId}> <FaEdit /> </CardButtonEdit>
                 </CardFooter>
                 <CardHeader>
                     <Row>

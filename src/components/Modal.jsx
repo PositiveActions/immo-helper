@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import Input from '../components/Input'
+import Input from '../components/Input';
 import { ModalContainer, ModalBackground } from '../styles/styled'
 import { ModalTitle, Label, CloseModalButton, Form } from '../styles/styledForm'
+
 
 function Modal({ closeModal, formResult }) {
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
@@ -38,21 +39,13 @@ function Modal({ closeModal, formResult }) {
                     <Label>Contact
                         <Input type="text" errors={errors} registerFn={register("contact", { required: true })} name="contact" />
                     </Label>
-                    <Label>Contacter :
-                        <Label>Oui
-                            <Input type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" />
-                        </Label>
-                        <Label>Non
-                            <Input type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" />
-                        </Label>
+                    <Label>Contacter
+                        <Label><Input type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" />Oui</Label>
+                        <Label><Input type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" />Non</Label>
                     </Label>
-                    <Label>Visiter :
-                        <Label>Oui
-                            <Input type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" />
-                        </Label>
-                        <Label>Non
-                            <Input type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" />
-                        </Label>
+                    <Label>Visiter
+                        <Label><Input type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" />Non</Label>
+                        <Label><Input type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" />Oui</Label>
                     </Label>
                     <Label>Commentaires :
                         <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" />

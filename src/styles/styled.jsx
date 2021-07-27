@@ -11,6 +11,18 @@ const customMedia = pxToRem(
     10
 );
 
+export const Button = styled.button`
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    height: 30px;
+    width: 200px;
+    color: ${({ theme: { colors } }) => colors.darkBlue};
+    background-color:${({ theme: { colors } }) => colors.yellow};
+    border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.button};
+    font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+`;
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -33,6 +45,7 @@ export const Container = styled.div`
 `;
 
 export const H1 = styled.h1`
+    text-align: center;
     color: ${({ theme: { colors } }) => colors.white};
     font-size: ${({ theme: { fontSizes } }) => fontSizes.large};
 `;
@@ -77,12 +90,12 @@ export const A = styled.a`
 export const CardContainer = styled.div`
     background-color: #fff;
     position: relative;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
+    box-shadow: 20px 20px 5px rgb(0, 9, 24);
     display: grid;
     grid-template-columns: 350px 600px;
     margin: 40px; 
     border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.card};
-    
+
     /* position: relative;
     display: flex;
     flex-direction: column;
@@ -96,7 +109,9 @@ export const CardContainer = styled.div`
 `;
 
 export const CardPic = styled.div`
-    background: #dfe6eb;
+    /* background: #dfe6eb; */
+    background-color:${({ theme: { colors } }) => colors.mediumGrey};
+
     color: #8896a0;
     display: flex;
     flex: 1 1 100%;
@@ -149,15 +164,25 @@ export const CardButtonEdit = styled.button`
   outline: none;
   display: flex;
   align-items: center;
-  background-color: #afc1d6;
-  color: $primary-color;
-  padding: 10px 15px;
+  background-color: #FCA311;
+  color: black;
+  padding: 12px;
   text-transform: uppercase;
-  border-radius: $border-radius;
   cursor: pointer;
-  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294); */
-  margin-left: 5px;
-  margin-top: 80px;
+  font-size: 1.7rem;
+  margin-top: 90px;
+  transition-duration: 0.4s;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  :hover { 
+      background-color: #000c20;
+      color: #FCA311;
+      zoom: 1.05;
+  }
+
+
 `
 
 export const CardButton = styled.button`
@@ -166,29 +191,26 @@ export const CardButton = styled.button`
   outline: none;
   display: flex;
   align-items: center;
+  color: black;
   background-color: #e34a6f;
-  color: $primary-color;
-  padding: 10px 15px;
+  padding: 12px;
   text-transform: uppercase;
   border-radius: $border-radius;
   cursor: pointer;
-  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294); */
-  margin-left: 5px;
-`
+  font-size: 1.7rem;
+  transition-duration: 0.4s;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  :hover { 
+      background-color: #000c20;
+      color: #e34a6f;
+      zoom: 1.05;
+  }
+  `
 
 //////////// MODAL /////////////
-
-export const Button = styled.button`
-    margin-right: auto;
-    margin-left: auto;
-    border: none;
-    height: 30px;
-    width: 200px;
-    color: ${({ theme: { colors } }) => colors.darkBlue};
-    background-color:${({ theme: { colors } }) => colors.yellow};
-    border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.button};
-    font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
-`;
 
 export const ModalBackground = styled.div`
     height: 100vh;
@@ -203,7 +225,7 @@ export const ModalContainer = styled.div`
     justify-content: center;
     padding: 25px;
     width: 100vh;
-    /* border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.card}; */
-    background-color:${({ theme: { colors } }) => colors.cadetGrey};
+    border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.modal};
+    background-color:${({ theme: { colors } }) => colors.mediumGrey};
     box-shadow: ${({ theme: { boxShadows } }) => boxShadows.modal};
 `;

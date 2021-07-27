@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from '../styles/styled';
+import { Container, Button, H1 } from '../styles/styled';
 import ModalEdit from '../components/ModalEdit';
 import Modal from '../components/Modal';
 import Card from '../components/Card'
@@ -23,7 +23,6 @@ function Main() {
     };
 
     function formEditResult(dataEditForm) {
-
         const newDatalist = dataList.map(elem => {
             if (elem.id === dataEditForm.id) {
                 return dataEditForm
@@ -48,6 +47,7 @@ function Main() {
 
     return (
         <Container>
+            <H1>Nom de l'application</H1>
             <Button onClick={() => { setOpenModal(true) }}>Cliquez ici!</Button>
             {openModal && <Modal closeModal={setOpenModal} formResult={formResult} />}
             {openModalEditing && <ModalEdit closeModalEdit={setOpenModalEditing} cardData={cardData} formEditResult={formEditResult} />}

@@ -1,9 +1,13 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import Input from '../components/Input'
+import styled from 'styled-components';
+import Input from '../components/Input';
 import { ModalContainer, ModalBackground } from '../styles/styled'
 import { ModalTitle, Label, CloseModalButton, Form } from '../styles/styledForm'
 
+const InputCheckbox = styled(Input)`
+    
+`
 
 function Modal({ closeModalEdit, cardData, formEditResult }) {
     const cardValues = cardData;
@@ -40,22 +44,16 @@ function Modal({ closeModalEdit, cardData, formEditResult }) {
                     <Label>Contact
                         <Input type="text" errors={errors} registerFn={register("contact", { required: true })} name="contact" defaultValue={cardValues.contact} />
                     </Label>
-                    <Label>Contacter :
-                        <Label>Oui
-                            <Input type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" defaultValue={cardValues.contactOui} />
-                        </Label>
-                        <Label>Non
-                            <Input type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" defaultValue={cardValues.contactNon} />
-                        </Label>
-                    </Label>
-                    <Label>Visiter :
-                        <Label>Oui
-                            <Input type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" defaultValue={cardValues.visiterOui} />
-                        </Label>
-                        <Label>Non
-                            <Input type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" defaultValue={cardValues.visiterNon} />
-                        </Label>
-                    </Label>
+                    <fieldset>
+                        <Label>Contacter</Label>
+                        <Label><InputCheckbox type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" />Oui</Label>
+                        <Label><InputCheckbox type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" />Non</Label>
+                    </fieldset>
+                    <fieldset>
+                        <Label>Visiter</Label>
+                        <Label><InputCheckbox type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" />Oui</Label>
+                        <Label><InputCheckbox type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" />Non</Label>
+                    </fieldset>
                     <Label>Commentaires :
                         <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" defaultValue={cardValues.commentaires} />
                     </Label>
