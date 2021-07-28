@@ -8,7 +8,6 @@ function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
 
     function cardId() {
         cardEditing(dataForCard.id)
-        openModalEdit(true);
     }
 
     return (
@@ -45,7 +44,9 @@ function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
                     </Row>
                 </CardHeader>
             </CardWrapper>
-        </CardContainer >
+            <button onClick={cardId}>Editer</button>
+            <button onClick={() => removeCard(dataForCard.id)}>Effacer</button>
+        </CardContainer>
     );
 }
 export default Card;
