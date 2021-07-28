@@ -4,10 +4,10 @@ import Modal from '../components/Modal';
 import Card from '../components/Card'
 
 function Main() {
-    const [formAffichage, setFormAffichage] = useState(false);
+    const [formAffichage, setModalDisplay] = useState(false);
     const [dataList, setDataList] = useState([]);
     const [ajoutCard, setAjoutCard] = useState(false)
-    const [cardData, setCardData] = useState([]);
+    const [cardData, setCardData] = useState({});
     const [editCard, setEditCard] = useState(false);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ function Main() {
         dataList.push(data);
         setDataList(dataList);
         localStorage.setItem('immo-helper:list', JSON.stringify(dataList));
-        setFormAffichage(false)
+        setModalDisplay(false)
         setAjoutCard(false);
     };
 
@@ -35,7 +35,7 @@ function Main() {
         setDataList(newDatalist)
         localStorage.setItem('immo-helper:list', JSON.stringify(newDatalist));
         setEditCard(false);
-        setFormAffichage(false);
+        setModalDisplay(false);
     };
 
     function removeCard(id) {
@@ -47,21 +47,25 @@ function Main() {
     function cardEditing(dataFormId) {
         const selectedItem = dataList.find(elem => elem.id === dataFormId);
         setCardData(selectedItem);
-        setEditCard(true);
-        setFormAffichage(true);
+        setAjoutCard(false);
+        setModalDisplay(true);
     };
+
+    function cardCreate() {
+        setModalDisplay(true)
+        setAjoutCard(true)
+    }
 
     return (
         <Container>
-            <Button onClick={() => { setFormAffichage(true); setAjoutCard(true) }}>Cliquez ici!</Button>
+            <Button onClick={cardCreate}>Cliquez ici!</Button>
             {formAffichage &&
                 <Modal
-                    setFormAffichage={setFormAffichage}
+                    setModalDisplay={setModalDisplay}
                     formResult={formResult}
                     formEditResult={formEditResult}
                     cardData={cardData}
-                    ajoutCard={ajoutCard}
-                    editCard={editCard} />}
+                    ajoutCard={ajoutCard} />}
             {dataList.map((item) =>
                 <Card
                     key={item.id}

@@ -43,14 +43,8 @@ const Form = styled.form`
     margin : 40px;
 `
 
-function Modal({ setFormAffichage, formResult, formEditResult, cardData, ajoutCard, editCard }) {
-    const cardValues = cardData;
-
-    let infoCard = cardValues;
-    if (ajoutCard === true) {
-        infoCard = {}
-    }
-
+function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCard }) {
+    const infoCard = ajoutCard ? {} : cardData;
     const { register, formState: { errors }, watch, handleSubmit } = useForm({ defaultValues: infoCard })
 
     const onSubmit = async () => {
@@ -66,7 +60,7 @@ function Modal({ setFormAffichage, formResult, formEditResult, cardData, ajoutCa
     return (
         <ModalBackground>
             <ModalContainer>
-                <CloseModalButton onClick={() => setFormAffichage(false)} >X</CloseModalButton>
+                <CloseModalButton onClick={() => setModalDisplay(false)} >X</CloseModalButton>
                 <ModalTitle>Infos Appartement/Maison</ModalTitle>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Label>Lien
@@ -107,8 +101,10 @@ function Modal({ setFormAffichage, formResult, formEditResult, cardData, ajoutCa
                     <Label>Commentaires :
                         <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" />
                     </Label>
-                    {ajoutCard === true && <button type="submit" onClick={onSubmit} >Ajouter</button>}
-                    {editCard === true && <button type="submit" onClick={onSubmitEdit}>Valider les modifications</button>}
+
+                    {ajoutCard ?
+                     <button type="submit" onClick={onSubmit} >Ajouter</button>
+                     : <button type="submit" onClick={onSubmitEdit}>Valider les modifications</button>}
                 </Form>
             </ModalContainer>
         </ModalBackground>
