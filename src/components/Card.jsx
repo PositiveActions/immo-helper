@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CardContainer, CardWrapper, Row, CardPic, CardHeader } from '../styles/styled';
-import Placeholder from './Placeholder';
+// import Placeholder from './Placeholder';
 import media from 'styled-media-query'
-
 
 const StyledCard = styled(CardContainer)`
     ${media.greaterThan("large")`
@@ -15,11 +14,9 @@ const P = styled.p`
     font-family: ${({ theme: { fonts } }) => fonts[2]};
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
 `
-function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
-
-    function test() {
+function Card({ dataForCard, removeCard, cardEditing}) {
+    function cardId() {
         cardEditing(dataForCard.id)
-        openModalEdit(true);
     }
 
     return (
@@ -49,7 +46,7 @@ function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
                     </Row>
                 </CardHeader>
             </CardWrapper>
-            <button onClick={test}>Editer</button>
+            <button onClick={cardId}>Editer</button>
             <button onClick={() => removeCard(dataForCard.id)}>Effacer</button>
         </StyledCard >
     );
