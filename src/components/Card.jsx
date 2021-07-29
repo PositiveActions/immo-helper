@@ -4,7 +4,7 @@ import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { CardContainer, CardWrapper, Row, CardPic, CardHeader, P, A, CardFooter, CardButton, CardButtonEdit } from '../styles/styled';
 
-function Card({ dataForCard, removeCard, cardEditing, openModalEdit }) {
+function Card({ dataForCard, removeCard, cardEditing }) {
 
     function cardId() {
         cardEditing(dataForCard.id)

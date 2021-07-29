@@ -29,7 +29,7 @@ export const Container = styled.div`
     justify-content: center;
     margin-right: auto;
     margin-left: auto;
-    padding: 2rem;
+    /* padding: 2rem; */
     /* ${media.greaterThan(customMedia.xs)`
         width: 536px;
     `}
@@ -214,6 +214,10 @@ export const CardButton = styled.button`
 
 export const ModalBackground = styled.div`
     height: 100vh;
+    width: 100vw;
+
+    background-color: rgba(200, 200, 200);
+
     display: flex;
     justify-content: center;
     align-items: center;

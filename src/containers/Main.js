@@ -8,7 +8,6 @@ function Main() {
     const [dataList, setDataList] = useState([]);
     const [ajoutCard, setAjoutCard] = useState(false)
     const [cardData, setCardData] = useState({});
-    const [editCard, setEditCard] = useState(false);
 
     useEffect(() => {
         const initialList = JSON.parse(localStorage.getItem('immo-helper:list')) || [];
@@ -34,7 +33,6 @@ function Main() {
         })
         setDataList(newDatalist)
         localStorage.setItem('immo-helper:list', JSON.stringify(newDatalist));
-        setEditCard(false);
         setModalDisplay(false);
     };
 
