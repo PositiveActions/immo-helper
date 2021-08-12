@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from '../styles/styled';
+import { Container, Button, H1 } from '../styles/styled';
 import Modal from '../components/Modal';
-import Card from '../components/Card'
+import Card from '../components/Card';
+import { fetchData } from '../service/network';
 
 function Main() {
     const [formAffichage, setModalDisplay] = useState(false);
@@ -14,10 +15,16 @@ function Main() {
         setDataList(initialList);
     }, []);
 
-    function formResult(data) {
+    async function formResult(data) {
         data.id = new Date().getTime();
+        
+        const url = data.lien;
+        const dataBack = await fetchData(url)
+        data.infoSite = dataBack;
+        
         dataList.push(data);
         setDataList(dataList);
+
         localStorage.setItem('immo-helper:list', JSON.stringify(dataList));
         setModalDisplay(false)
         setAjoutCard(false);
@@ -56,6 +63,8 @@ function Main() {
 
     return (
         <Container>
+            <H1>Immo helper</H1>
+            <p>Immo helper vous aide a gardez une trace des biens qui vous intéressent, le site sur lequel vous l'avez trouvé, le contact et les caractéristiques du bien. </p>
             <Button onClick={cardCreate}>Cliquez ici!</Button>
             {formAffichage &&
                 <Modal

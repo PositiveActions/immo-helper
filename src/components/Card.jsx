@@ -1,5 +1,4 @@
 import React from 'react';
-import Placeholder from './Placeholder';
 import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { CardContainer, CardWrapper, Row, CardPic, CardHeader, P, A, CardFooter, CardButton, CardButtonEdit } from '../styles/styled';
@@ -12,8 +11,8 @@ function Card({ dataForCard, removeCard, cardEditing }) {
 
     return (
         <CardContainer>
-            <CardPic>
-                <Placeholder />
+            <CardPic >
+                <img src={dataForCard.infoSite.image} alt={dataForCard.infoSite.titre} style={{width:350, height:"auto"}} />
             </CardPic>
             <CardWrapper>
                 <CardFooter>
@@ -23,7 +22,9 @@ function Card({ dataForCard, removeCard, cardEditing }) {
                 <CardHeader>
                     <Row>
                         <P> Lien : <A href={dataForCard.lien} target="_blank">{dataForCard.lien}</A></P>
+                        <P>Titre: {dataForCard.infoSite.titre}</P>
                     </Row>
+                    <Row></Row>
                     <Row>
                         <P>{dataForCard.prix}€/mois</P>
                         <P>{dataForCard.pieces} pièces</P>
@@ -44,8 +45,6 @@ function Card({ dataForCard, removeCard, cardEditing }) {
                     </Row>
                 </CardHeader>
             </CardWrapper>
-            <button onClick={cardId}>Editer</button>
-            <button onClick={() => removeCard(dataForCard.id)}>Effacer</button>
         </CardContainer>
     );
 }

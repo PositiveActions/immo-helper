@@ -85,6 +85,7 @@ export const A = styled.a`
         color: #000;
     }
 `
+
 ////////////// CARD STYLE ////////////// 
 
 export const CardContainer = styled.div`
