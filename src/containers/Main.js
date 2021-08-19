@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, H1 } from '../styles/styled';
+import { Container, Button, Header, Description, H1 } from '../styles/styled';
+import { CardContainer } from '../styles/styledCard';
 import Modal from '../components/Modal';
 import Card from '../components/Card';
 import { fetchData } from '../service/network';
@@ -7,7 +8,7 @@ import { fetchData } from '../service/network';
 function Main() {
     const [formAffichage, setModalDisplay] = useState(false);
     const [dataList, setDataList] = useState([]);
-    const [ajoutCard, setAjoutCard] = useState(false)
+    const [ajoutCard, setAjoutCard] = useState(false);
     const [cardData, setCardData] = useState({});
 
     useEffect(() => {
@@ -17,11 +18,15 @@ function Main() {
 
     async function formResult(data) {
         data.id = new Date().getTime();
-        
+
         const url = data.lien;
-        const dataBack = await fetchData(url)
-        data.infoSite = dataBack;
-        
+        try {
+            const dataBack = await fetchData(url)
+            data.infoSite = dataBack;
+        } catch (error) {
+            data.infoSite = {};
+        }
+
         dataList.push(data);
         setDataList(dataList);
 
@@ -63,23 +68,30 @@ function Main() {
 
     return (
         <Container>
-            <H1>Immo helper</H1>
-            <p>Immo helper vous aide a gardez une trace des biens qui vous intéressent, le site sur lequel vous l'avez trouvé, le contact et les caractéristiques du bien. </p>
-            <Button onClick={cardCreate}>Cliquez ici!</Button>
-            {formAffichage &&
-                <Modal
-                    setModalDisplay={setModalDisplay}
-                    formResult={formResult}
-                    formEditResult={formEditResult}
-                    cardData={cardData}
-                    ajoutCard={ajoutCard} />}
-            {dataList.map((item) =>
-                <Card
-                    key={item.id}
-                    dataForCard={item}
-                    removeCard={removeCard}
-                    cardEditing={cardEditing} />)}
-        </Container>
+            <Header>
+                <Description>
+                    <H1>Immo-Helper</H1>
+                    <p>Immo-helper vous aide à garder une trace des biens qui vous intéressent, le site sur lequel vous les avez trouvés, le contact et les caractéristiques du bien.</p>
+                </Description>
+                <Button onClick={cardCreate}>Cliquez ici !</Button>
+                {formAffichage &&
+                    <Modal
+                        setModalDisplay={setModalDisplay}
+                        formResult={formResult}
+                        formEditResult={formEditResult}
+                        cardData={cardData}
+                        ajoutCard={ajoutCard} />
+                }
+            </Header>
+            <CardContainer>
+                {dataList.map((item) =>
+                    <Card
+                        key={item.id}
+                        dataForCard={item}
+                        removeCard={removeCard}
+                        cardEditing={cardEditing} />)}
+            </CardContainer>
+        </Container >
     );
 }
 export default Main;

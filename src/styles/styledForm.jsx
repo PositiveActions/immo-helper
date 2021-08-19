@@ -5,7 +5,6 @@ export const ModalTitle = styled.h1`
     text-align: center;
     margin-top: 10px;
     color: ${({ theme: { colors } }) => colors.darkBlue};
-    font-family: ${({ theme: { fonts } }) => fonts[3]};
     font-size: 2rem;
 `
 export const Label = styled.label`
@@ -13,7 +12,6 @@ export const Label = styled.label`
     text-align: left;
     display: block;
     color: ${({ theme: { colors } }) => colors.darkBlue};
-    font-family: ${({ theme: { fonts } }) => fonts[3]};
     font-size: 1.5rem;
     font-weight: 200;
 `

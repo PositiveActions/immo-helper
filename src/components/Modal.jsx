@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import Input from '../components/Input';
-import { ModalContainer, ModalBackground } from '../styles/styled'
+import { ModalContainer } from '../styles/styled'
 import { ModalTitle, Label, CloseModalButton, Form } from '../styles/styledForm'
 
 function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCard }) {
@@ -19,7 +19,6 @@ function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCar
     };
 
     return (
-        <ModalBackground>
             <ModalContainer>
                 <CloseModalButton onClick={() => setModalDisplay(false)} >X</CloseModalButton>
                 <ModalTitle>Infos Appartement/Maison</ModalTitle>
@@ -60,7 +59,6 @@ function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCar
                         : <button type="submit" onClick={onSubmitEdit} >Valider les modifications</button>}
                 </Form>
             </ModalContainer>
-        </ModalBackground>
     );
 }
 export default Modal;

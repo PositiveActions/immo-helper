@@ -13,15 +13,15 @@ const theme = {
     black: "#000000"
   },
   fontSizes: {
-    small: "1.5em",
-    medium: "2em",
-    large: "2.5em"
+    small: "2em",
+    medium: "2.5em",
+    large: "3.5em"
   },
   fonts: ["quicksand-italic", "quicksand-light", "quicksand-regular", "quicksand-bold"],
   bordersRadius: {
     input: "4px",
     button: "4px",
-    card: "8px",
+    card: "4px",
     modal: "4px"
   },
   boxShadows: {
