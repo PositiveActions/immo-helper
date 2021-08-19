@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Header, Description, H1 } from '../styles/styled';
+import { Container, Button, Header, Description, H1, H2 } from '../styles/styled';
 import { CardContainer } from '../styles/styledCard';
 import Modal from '../components/Modal';
 import Card from '../components/Card';
 import { fetchData } from '../service/network';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function Main() {
     const [formAffichage, setModalDisplay] = useState(false);
     const [dataList, setDataList] = useState([]);
     const [ajoutCard, setAjoutCard] = useState(false);
     const [cardData, setCardData] = useState({});
+
+    const csvData = dataList;
 
     useEffect(() => {
         const initialList = JSON.parse(localStorage.getItem('immo-helper:list')) || [];
@@ -68,6 +72,7 @@ function Main() {
 
     return (
         <Container>
+            <Navbar data={csvData}/>
             <Header>
                 <Description>
                     <H1>Immo-Helper</H1>
@@ -83,6 +88,7 @@ function Main() {
                         ajoutCard={ajoutCard} />
                 }
             </Header>
+            <H2>Ma Selection</H2>
             <CardContainer>
                 {dataList.map((item) =>
                     <Card
@@ -91,6 +97,7 @@ function Main() {
                         removeCard={removeCard}
                         cardEditing={cardEditing} />)}
             </CardContainer>
+            <Footer/>
         </Container >
     );
 }

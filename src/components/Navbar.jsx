@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../logo_size.jpg'
+import { CSVLink } from "react-csv";
+
 
 const BarContainer = styled.div`
     display: flex;
@@ -10,27 +12,35 @@ const BarContainer = styled.div`
     position: sticky; top: 0;
     font-size: ${({ theme: { fontSizes } }) => fontSizes.large};
     font-family: ${({ theme: { fonts } }) => fonts[3]};
-    background-color: #003459;
-    color: #f0efeb;
+    background-color: #fff;
+    border-bottom: solid 1px #003459;
 `
-const ButtonExport = styled.button`
-    border: none;
+const ButtonExport = styled(CSVLink)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 30px;
     width: 100px;
+    border: none;
+    font-size: 18px;
+    text-decoration: none;
     color: ${({ theme: { colors } }) => colors.darkBlue};
     background-color:${({ theme: { colors } }) => colors.yellow};
     border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.button};
-    color: ${({ theme: { colors } }) => colors.darkBlue};
 `
 const Image = styled.img`
     /* mix-blend-mode: multiply; */
 `
 
-function Navbar() {
+function Navbar({ data }) {
     return (
         <BarContainer>
-            <Image src={logo}  alt="logo immo-helper" />
-            <ButtonExport>Exporter</ButtonExport>
+            <Image src={logo} alt="logo immo-helper" />
+            <ButtonExport
+                data={data}
+                filename={"my-file.csv"}
+                target="_blank"
+            > Exporter </ButtonExport>
         </BarContainer>
     );
 }

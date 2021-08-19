@@ -6,7 +6,6 @@ const FooterContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 40px 30px;
-    margin-top: 30px;
     bottom: 0;
     background-color: #003459;
     font-family: ${({ theme: { fonts } }) => fonts[3]};

@@ -13,7 +13,7 @@ function Card({ dataForCard, removeCard, cardEditing }) {
     return (
         <CardStyle>
             <PlaceholderImage>
-                <a href={dataForCard.lien} target="_blank"><img src={dataForCard.infoSite.image} alt={dataForCard.infoSite.titre} style={{
+                <a href={dataForCard.lien} target="_blank" rel="noreferrer"><img src={dataForCard.infoSite.image} alt={dataForCard.infoSite.titre} style={{
                     width: "100%",
                     height: "235px"
                 }} /></a>

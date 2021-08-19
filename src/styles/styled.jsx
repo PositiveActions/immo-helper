@@ -1,15 +1,5 @@
 import styled from "styled-components";
-import media, { pxToRem } from "styled-media-query";
-
-const customMedia = pxToRem(
-    {
-        xs: "576px",
-        sm: "768px",
-        md: "992px",
-        lg: "1240px"
-    },
-    10
-);
+import media from "styled-media-query";
 
 export const Container = styled.div`
     display: flex;
@@ -56,6 +46,15 @@ export const H1 = styled.h1`
         font-size: ${({ theme: { fontSizes } }) => fontSizes.large};
     `}
 `;
+
+export const H2 = styled.h2`
+    font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};
+    text-align: center;
+    padding:40px 0 40px 0;
+    background-color: #003459;
+    color: #fff;
+    text-transform: uppercase;
+`
 
 export const P = styled.p`
     font-size: ${({ theme: { fontSizes } }) => fontSizes.medium};

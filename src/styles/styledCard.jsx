@@ -5,6 +5,7 @@ export const CardContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     font-size: 8px;
+    background-color: #ced1d3;
 `
 
 export const CardStyle = styled.div`
@@ -12,8 +13,7 @@ export const CardStyle = styled.div`
     height: auto;
     padding: 12px;
     background-color: white;
-    margin: 5vh 30px 0 30px;
-    /* margin-left: 10px; */
+    margin: 5vh 30px 5vh 30px;
     border: 1px solid #ebebeb;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
     display: flex;
