@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Line } from 'react-icons/ri'
-import { P } from '../styles/styled';
+import { P, Span } from '../styles/styled';
 import { CardStyle, PlaceholderImage, Description, CardsButtons, CardDelete, CardEdit } from '../styles/styledCard';
 
 function Card({ dataForCard, removeCard, cardEditing }) {
@@ -23,15 +23,15 @@ function Card({ dataForCard, removeCard, cardEditing }) {
                     <CardDelete onClick={() => removeCard(dataForCard.id)}><RiDeleteBin6Line /></CardDelete>
                     <CardEdit onClick={cardId}> <FaEdit /> </CardEdit>
                 </CardsButtons>
-                <P><span>Titre: </span> {dataForCard.infoSite.titre}</P>
-                <P><span>{dataForCard.prix}€/mois</span></P>
-                <P><span>{dataForCard.pieces} Pièces</span></P>
-                <P><span>{dataForCard.metres} m²</span></P>
-                <P><span>Lieu :</span> {dataForCard.lieu}</P>
-                <P><span>Contacté :</span> {dataForCard.contactOui === true ? <span>Oui</span> : "" || dataForCard.contactNon === true ? <span>Non</span> : ""}</P>
-                <P><span>Visité :</span> {dataForCard.visiterOui === true ? <span>Oui</span> : "" || dataForCard.visiterNon === true ? <span>Non</span> : ""}</P>
-                <P><span>Contact :</span> {dataForCard.contact} </P>
-                <P><span>Commentaires :</span> {dataForCard.commentaires}</P>
+                <P><Span>Titre: </Span> {dataForCard.infoSite.titre}</P>
+                <P><Span>{dataForCard.prix}€/mois</Span></P>
+                <P><Span>{dataForCard.pieces} Pièces</Span></P>
+                <P><Span>{dataForCard.metres} m²</Span></P>
+                <P><Span>Lieu :</Span> {dataForCard.lieu}</P>
+                <P><Span>Contacté :</Span> {dataForCard.contactOui === true ? <Span>Oui</Span> : "" || dataForCard.contactNon === true ? <Span>Non</Span> : ""}</P>
+                <P><Span>Visité :</Span> {dataForCard.visiterOui === true ? <Span>Oui</Span> : "" || dataForCard.visiterNon === true ? <Span>Non</Span> : ""}</P>
+                <P><Span>Contact :</Span> {dataForCard.contact} </P>
+                <P><Span>Commentaires :</Span> {dataForCard.commentaires}</P>
             </Description>
         </CardStyle>
     );

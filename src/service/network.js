@@ -1,5 +1,6 @@
 export function fetchData(url) {
-    const URL = `http://localhost:3001/preview?url=${url}`;
+    const urlServer = process.env.REACT_APP_API_URL;
+    const URL = `${urlServer}preview?url=${url}`;
     return fetch(URL)
         .then((response) => response.json())
         .then((data) => data);

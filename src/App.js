@@ -10,7 +10,6 @@ function App() {
     <Theme>
       <GlobalFonts />
       <Main />
-      {/* <Footer /> */}
     </Theme>
   );
 }

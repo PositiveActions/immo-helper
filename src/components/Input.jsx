@@ -13,8 +13,6 @@ const InputStyled = styled.input`
     background: transparent;
     transition: border-color 0.2s;
 `
-
-
 function Input({ type = "text", placeholder = "", name = "", registerFn, errors = {}, ...props }) {
     const [inputType] = useState(type);
     const [inputPlaceholder] = useState(placeholder);

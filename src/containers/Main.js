@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Header, Description, H1, H2 } from '../styles/styled';
-import { CardContainer } from '../styles/styledCard';
-import Modal from '../components/Modal';
-import Card from '../components/Card';
+import { Container, Button, Header, Description, H1, H2, Pdescription } from '../styles/styled';
+import { CardContainer, Selection  } from '../styles/styledCard';
 import { fetchData } from '../service/network';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Modal from '../components/Modal';
+import Card from '../components/Card';
 
 function Main() {
     const [formAffichage, setModalDisplay] = useState(false);
@@ -72,11 +72,11 @@ function Main() {
 
     return (
         <Container>
-            <Navbar data={csvData}/>
+            <Navbar data={csvData} />
             <Header>
                 <Description>
-                    <H1>Immo-Helper</H1>
-                    <p>Immo-helper vous aide à garder une trace des biens qui vous intéressent, le site sur lequel vous les avez trouvés, le contact et les caractéristiques du bien.</p>
+                    <H1>ImmoHelper</H1>
+                    <Pdescription>ImmoHelper vous aide à garder une trace des biens qui vous intéressent, le site sur lequel vous les avez trouvés, le contact et les caractéristiques du bien.</Pdescription>
                 </Description>
                 <Button onClick={cardCreate}>Cliquez ici !</Button>
                 {formAffichage &&
@@ -88,16 +88,19 @@ function Main() {
                         ajoutCard={ajoutCard} />
                 }
             </Header>
-            <H2>Ma Selection</H2>
+            <H2>Votre sélection</H2>
             <CardContainer>
-                {dataList.map((item) =>
-                    <Card
-                        key={item.id}
-                        dataForCard={item}
-                        removeCard={removeCard}
-                        cardEditing={cardEditing} />)}
+                {dataList.length ? null : <Selection>Vous n'avez pas encore ajouté de bien.</Selection>}
+                {
+                    dataList.map((item) =>
+                        <Card
+                            key={item.id}
+                            dataForCard={item}
+                            removeCard={removeCard}
+                            cardEditing={cardEditing} />)
+                }
             </CardContainer>
-            <Footer/>
+            <Footer />
         </Container >
     );
 }

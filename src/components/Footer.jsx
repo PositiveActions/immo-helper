@@ -1,20 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from "styled-media-query";
 
-const FooterContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 30px;
+ export const FooterContainer = styled.div`
     bottom: 0;
-    background-color: #003459;
-    font-family: ${({ theme: { fonts } }) => fonts[3]};
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${({ theme: { colors } }) => colors.darkBlue};
 `;
 
-const FooterContent = styled.div`
+export const FooterContent = styled.div`
     display: flex;
     align-items: center;
-    color: #f0efeb;
+    font-family: 'catamaran-semibold';
+    color: ${({ theme: { colors } }) => colors.white};
+    font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+
+    ${media.lessThan("small")`
+        font-size: ${({ theme: { fontSizes } }) => fontSizes.extraSmall};
+    `}
 `;
 
 export default function Footer() {

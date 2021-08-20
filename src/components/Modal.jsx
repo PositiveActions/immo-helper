@@ -1,8 +1,8 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import Input from '../components/Input';
-import { ModalContainer } from '../styles/styled'
-import { ModalTitle, Label, CloseModalButton, Form } from '../styles/styledForm'
+import { ModalBackground, ModalContainer, ModalTitle, Label, CloseModalButton, Form, ButtonFormContainer, LabelCheckbox } from '../styles/styledForm'
+import { Button } from '../styles/styled';
 
 function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCard }) {
     const infoCard = ajoutCard ? {} : cardData;
@@ -19,6 +19,7 @@ function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCar
     };
 
     return (
+        <ModalBackground>
             <ModalContainer>
                 <CloseModalButton onClick={() => setModalDisplay(false)} >X</CloseModalButton>
                 <ModalTitle>Infos Appartement/Maison</ModalTitle>
@@ -43,22 +44,24 @@ function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCar
                         <Input type="text" errors={errors} registerFn={register("contact", { required: true })} name="contact" />
                     </Label>
                     <Label>Contacter
-                        <Label><Input type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" />Oui</Label>
-                        <Label><Input type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" />Non</Label>
+                        <LabelCheckbox><Input type="checkbox" errors={errors} registerFn={register("contactOui", { required: true })} name="contactOui" />Oui</LabelCheckbox>
+                        <LabelCheckbox><Input type="checkbox" errors={errors} registerFn={register("contactNon", { required: true })} name="contactNon" />Non</LabelCheckbox>
                     </Label>
                     <Label>Visiter
-                        <Label><Input type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" />Non</Label>
-                        <Label><Input type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" />Oui</Label>
+                        <LabelCheckbox><Input type="checkbox" errors={errors} registerFn={register("visiterOui", { required: true })} name="visiterOui" /> Oui</LabelCheckbox>
+                        <LabelCheckbox><Input type="checkbox" errors={errors} registerFn={register("visiterNon", { required: true })} name="visiterNon" /> Non</LabelCheckbox>
                     </Label>
                     <Label>Commentaires :
                         <Input type="text" errors={errors} registerFn={register("commentaires", { required: true })} name="commentaires" />
                     </Label>
-
-                    {ajoutCard ?
-                        <button type="submit" onClick={onSubmit} >Ajouter</button>
-                        : <button type="submit" onClick={onSubmitEdit} >Valider les modifications</button>}
                 </Form>
+                <ButtonFormContainer>
+                    {ajoutCard ?
+                        <Button type="submit" onClick={onSubmit} >Ajouter</Button>
+                        : <Button type="submit" onClick={onSubmitEdit} >Valider</Button>}
+                </ButtonFormContainer>
             </ModalContainer>
+        </ModalBackground>
     );
 }
 export default Modal;

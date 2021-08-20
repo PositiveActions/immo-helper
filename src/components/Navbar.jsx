@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../logo_size.jpg'
+import logo from '../assets/logo.png'
 import { CSVLink } from "react-csv";
 
 
@@ -19,11 +19,12 @@ const ButtonExport = styled(CSVLink)`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    height: 34px;
     width: 100px;
     border: none;
     font-size: 18px;
     text-decoration: none;
+    font-family: 'catamaran-semibold';
     color: ${({ theme: { colors } }) => colors.darkBlue};
     background-color:${({ theme: { colors } }) => colors.yellow};
     border-radius: ${({ theme: { bordersRadius } }) => bordersRadius.button};
