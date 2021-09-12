@@ -24,12 +24,12 @@ function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCar
                 <CloseModalButton onClick={() => setModalDisplay(false)} >X</CloseModalButton>
                 <ModalTitle>Infos Appartement/Maison</ModalTitle>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Label>Lien
+                    <Label>Lien du bien
                         <Input type="text" errors={errors} registerFn={register("lien", { required: true, maxLength: 15 })} name="lien" />
                         <span>{errors.lien?.type === 'required' && "Link is required"}</span>
                     </Label>
                     <Label>Prix
-                        <Input type="number" errors={errors} registerFn={register("prix", { required: true, maxLength: 7 })} name="prix" />
+                        <Input type="number" errors={errors} registerFn={register("prix", { required: true, maxLength: 8 })} name="prix" />
                     </Label>
                     <Label>N° Pièces
                         <Input type="number" errors={errors} registerFn={register("pieces", { required: true, maxLength: 2 })} name="pieces" />
@@ -58,7 +58,7 @@ function Modal({ setModalDisplay, formResult, formEditResult, cardData, ajoutCar
                 <ButtonFormContainer>
                     {ajoutCard ?
                         <Button type="submit" onClick={onSubmit} >Ajouter</Button>
-                        : <Button type="submit" onClick={onSubmitEdit} >Valider</Button>}
+                        : <Button type="submit" onClick={onSubmitEdit} >Sauvegarder</Button>}
                 </ButtonFormContainer>
             </ModalContainer>
         </ModalBackground>

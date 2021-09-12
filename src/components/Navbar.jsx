@@ -39,7 +39,7 @@ function Navbar({ data }) {
             <Image src={logo} alt="logo immo-helper" />
             <ButtonExport
                 data={data}
-                filename={"my-file.csv"}
+                filename={"immohelper-file.csv"}
                 target="_blank"
             > Exporter </ButtonExport>
         </BarContainer>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import media from "styled-media-query";
 
- export const FooterContainer = styled.div`
+const FooterContainer = styled.div`
     bottom: 0;
     padding: 40px;
     display: flex;
@@ -11,7 +11,7 @@ import media from "styled-media-query";
     background-color: ${({ theme: { colors } }) => colors.darkBlue};
 `;
 
-export const FooterContent = styled.div`
+const FooterContent = styled.div`
     display: flex;
     align-items: center;
     font-family: 'catamaran-semibold';
@@ -23,11 +23,15 @@ export const FooterContent = styled.div`
     `}
 `;
 
+const Alink = styled.a`
+    color: pink;
+`;
+
 export default function Footer() {
     return (
         <FooterContainer>
             <FooterContent>
-                <p>Copyright &#169;{new Date().getFullYear()} Tous droits réservés.</p>
+                <p>This website is <Alink target="_blank" href="https://github.com/PositiveActions/immo-helper">open source</Alink>. Enjoy ♥️ </p>
             </FooterContent>
         </FooterContainer>
     )

@@ -13,49 +13,47 @@ function Main() {
     const [ajoutCard, setAjoutCard] = useState(false);
     const [cardData, setCardData] = useState({});
 
-    const csvData = dataList;
-
     useEffect(() => {
         const initialList = JSON.parse(localStorage.getItem('immo-helper:list')) || [];
         setDataList(initialList);
     }, []);
 
+    async function getLinkData(link) {
+        try {
+            let infoSite = {};
+            if (link) {
+                infoSite = await fetchData(link);
+            }
+            return infoSite;
+        } catch (error) {
+            return {};
+        }
+    }
+
+    function saveData(dataList) {
+        setDataList(dataList)
+        localStorage.setItem('immo-helper:list', JSON.stringify(dataList));
+        setModalDisplay(false);
+    }
+
     async function formResult(data) {
         data.id = new Date().getTime();
-
-        const url = data.lien;
-        try {
-            const dataBack = await fetchData(url)
-            data.infoSite = dataBack;
-        } catch (error) {
-            data.infoSite = {};
-        }
-
+        data.infoSite = await getLinkData(data.lien)
         dataList.push(data);
-        setDataList(dataList);
-
-        localStorage.setItem('immo-helper:list', JSON.stringify(dataList));
-        setModalDisplay(false)
+        saveData(dataList);
         setAjoutCard(false);
     };
 
     function formEditResult(dataEditForm) {
         const newDatalist = dataList.map(elem => {
-            if (elem.id === dataEditForm.id) {
-                return dataEditForm
-            } else {
-                return elem
-            }
+            return (elem.id === dataEditForm.id) ? dataEditForm : elem;
         })
-        setDataList(newDatalist)
-        localStorage.setItem('immo-helper:list', JSON.stringify(newDatalist));
-        setModalDisplay(false);
+        saveData(newDatalist);
     };
 
     function removeCard(id) {
         const newList = dataList.filter(elem => elem.id !== id);
-        setDataList(newList);
-        localStorage.setItem('immo-helper:list', JSON.stringify(newList));
+        saveData(newList)
     };
 
     function cardEditing(dataFormId) {
@@ -72,7 +70,7 @@ function Main() {
 
     return (
         <Container>
-            <Navbar data={csvData} />
+            <Navbar data={dataList} />
             <Header>
                 <Description>
                     <H1>ImmoHelper</H1>
