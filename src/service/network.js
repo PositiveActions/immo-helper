@@ -1,5 +1,5 @@
 export function fetchData(url) {
-    const urlServer = process.env.REACT_APP_API_URL;
+    const urlServer = 'https://immo-helper.herokuapp.com/';
     const URL = `${urlServer}preview?url=${url}`;
     return fetch(URL)
         .then((response) => response.json())
